@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>U</title>
+
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+
+  $("#themsg").hide()
+  $("#errormsg").hide()
+
+  $("#submitbtn").click(function(){
+  	var password=$("#pswrd").val()
+  	if(password=="{{password}}"){
+  		$("#errormsg").hide()
+  		$("#themsg").show()
+  	}
+  	else{
+  		$("#errormsg").show()
+  	}
+
+  
+});
+});
+</script>
+
+</head>
+<body>
+
+<center>
+<div class="jumbotron text center"><h1 class="display-2">Send/Distribute private messages</h1> 
+		
+	<br>
+
+Enter password: <input type="password" id="pswrd" name="pswrd" class="form-control" style="width: 350px;" placeholder="password"><input type="button" value="See message" id="submitbtn" class="btn" style="background-color: purple;color: whitesmoke;">
+
+<br>
+<br>
+<center>
+<div class="container" id="themsg">
+<div class="container" style="background-color: rgb(27,36,49);border-radius: 3.5px;">
+<h2  style="color:whitesmoke;"> {{msg}}</h2>
+</div>
+<br>
+<a href="/deletelink/{{linkid}}"><input type="button"  class="btn btn-danger" value="destroy this link"></a>
+</div>
+</center>
+<div class="alert alert-danger" id="errormsg"><h2 >Wrong password, try again</h2></div>
+
+</div>
+</center>
+</body>
+</html>

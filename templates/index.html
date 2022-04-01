@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Uwu</title>
+
+
+
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js"></script><!-- clipboard library -->
+
+<script type="text/javascript">
+
+function copyData(containerid) {
+  var range = document.createRange();
+  range.selectNode(containerid); //changed here
+  window.getSelection().removeAllRanges(); 
+  window.getSelection().addRange(range); 
+  document.execCommand("copy");
+  window.getSelection().removeAllRanges();
+}
+</script>
+</head>
+<body>
+
+<div class="container">
+	<div class="jumbotron text center"><h1 class="display-2">Send/Distribute private messages</h1> 
+		
+	<br>
+<form action="/newmsg" method="POST" required>
+	Enter message: <textarea name="themsg" class="form-control"></textarea>
+	<br>
+	Enter password: <input type="password" name="password" class="form-control">
+	<input type="submit" class="btn btn-primary" value="Create link">
+</form>
+<br>
+
+<h1> Generated link:  <span class="badge badge-dark"><a href="{{linkid}}"><h3 style="color: whitesmoke;" id="linktocopy"> {{linkid}}</h3></a></span></h1>
+<a href="/copytoclipboard/{{linkid}}"><input type="button"  class="btn btn-secondary" value="Copy link"></a>
+<br>
+<br>
+</div>
+<br>
+<p> Made with ❤️ by <a href="https://github.com/AaryanSinhaRoy">AaryanSinhaRoy</a></p>
+</body>
+</html>
